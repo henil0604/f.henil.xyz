@@ -5,7 +5,6 @@
     import Icon from "@iconify/svelte";
 
     let file: File | null = null;
-    let fileLabel = "";
     let uploading = false;
     let uploadingStatus = "Initializing...";
     let uploadingStatusType: "log" | "success" | "error" = "log";
@@ -176,18 +175,6 @@
             id="file"
             type="file"
             multiple={false}
-        />
-    </div>
-
-    <div class="my-2" />
-
-    <div class="grid w-full max-w-sm items-center gap-1.5">
-        <Label for="label">Label</Label>
-        <Input
-            bind:value={fileLabel}
-            id="label"
-            type="text"
-            placeholder="My File"
         />
     </div>
 
