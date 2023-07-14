@@ -57,7 +57,10 @@ export const POST: RequestHandler = async ({ request }) => {
         })
     }
 
+    console.log("---FILE UPLOAD---")
+
     const hash = await calculateSHA256(form.file);
+    console.log("hash?", hash)
 
     const $file = $uploads.openFile(hash, { autoCreate: false });
 
@@ -65,6 +68,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
     // someone already uploaded file
     if ($file.exists) {
+        console.log("hash already exists")
         // Just store new file data
         let doc = await files.insert({
             id: randomString(10),
@@ -110,7 +114,6 @@ export const POST: RequestHandler = async ({ request }) => {
         createdAt: Date.now()
     })
 
-    console.log("---FILE UPLOAD---")
     console.log("doc?", doc);
     console.log("hashDoc?", hashDoc);
     console.log("-----")
