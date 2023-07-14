@@ -67,6 +67,7 @@
             uploadingStatus = "Maximum File Size reached";
             uploadingStatusType = "error";
             uploadSuccessData = null;
+            return;
         }
 
         const formData = new FormData();
