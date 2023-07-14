@@ -1,4 +1,5 @@
 <script lang="ts">
+    import { MAX_FILE_SIZE } from "$lib/const";
     import { Button } from "./ui/button";
     import { Input } from "./ui/input";
     import { Label } from "./ui/label";
@@ -61,6 +62,12 @@
         uploadingStatus = "Initializing...";
         uploadingStatusType = "log";
         uploadSuccessData = null;
+
+        if (file.size > MAX_FILE_SIZE) {
+            uploadingStatus = "Maximum File Size reached";
+            uploadingStatusType = "error";
+            uploadSuccessData = null;
+        }
 
         const formData = new FormData();
 

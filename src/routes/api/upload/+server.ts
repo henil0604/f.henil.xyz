@@ -1,7 +1,8 @@
+import { MAX_FILE_SIZE } from "$lib/const";
 import { $uploads, files, hashes } from "$lib/db";
 import { json, type RequestHandler } from "@sveltejs/kit";
 import { createSHA256 } from 'hash-wasm';
-import fs from 'node:fs/promises'
+import fs from 'node:fs/promises';
 
 async function calculateSHA256(file: File) {
     const hasher = await createSHA256()
@@ -58,6 +59,15 @@ export const POST: RequestHandler = async ({ request }) => {
     }
 
     console.log("---FILE UPLOAD---")
+
+    if (form.file.size > MAX_FILE_SIZE) {
+        return json({
+            error: true,
+            message: 'Max file size reached'
+        }, {
+            status: 400
+        })
+    }
 
     const hash = await calculateSHA256(form.file);
     console.log("hash?", hash)
