@@ -1,0 +1,39 @@
+{
+  "name": "f",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+  },
+  "devDependencies": {
+    "@iconify/svelte": "^3.1.4",
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.5.0",
+    "@types/node": "^20.4.2",
+    "autoprefixer": "^10.4.14",
+    "postcss": "^8.4.24",
+    "postcss-load-config": "^4.0.1",
+    "radix-svelte": "^0.8.0",
+    "svelte": "^3.54.0",
+    "svelte-check": "^3.0.1",
+    "tailwindcss": "^3.3.2",
+    "tslib": "^2.4.1",
+    "typescript": "^5.0.0",
+    "vite": "^4.3.0"
+  },
+  "type": "module",
+  "dependencies": {
+    "class-variance-authority": "^0.6.1",
+    "clsx": "^1.2.1",
+    "filic": "^3.6.2",
+    "hash-wasm": "^4.9.0",
+    "lucide-svelte": "^0.260.0",
+    "nabladb": "^2.0.2",
+    "tailwind-merge": "^1.13.2",
+    "tailwindcss-animate": "^1.0.6"
+  }
+}
